@@ -75,3 +75,4 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+[ -r "$HOME/.shell_env.sh" ] && source "$HOME/.shell_env.sh"
