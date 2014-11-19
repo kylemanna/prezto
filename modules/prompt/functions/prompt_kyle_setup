@@ -1,0 +1,20 @@
+#
+# A simple theme that displays relevant, contextual information + hostname
+#
+# Authors:
+#   Kyle Manna <kyle@kylemanna.com>
+#
+# Screenshots:
+#   TODO
+#
+
+function prompt_kyle_setup {
+  prompt_sorin_setup "$@"
+  PROMPT='%F{white}%m:%F{cyan}${_prompt_sorin_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
+  #PROMPT='${SSH_TTY:+"%F{red}%n%f@%F{yellow}%m%f "}%F{cyan}${_prompt_sorin_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
+  RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+
+}
+
+prompt_kyle_setup "$@"
