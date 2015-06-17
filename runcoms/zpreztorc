@@ -34,7 +34,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'fasd' \
   'git' \
-  'ssh' \
   'tmux' \
   'gpg' \
   'prompt'
