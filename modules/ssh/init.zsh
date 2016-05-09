@@ -42,7 +42,8 @@ if ssh-add -l 2>&1 | grep -q 'The agent has no identities'; then
   if (( ${#_ssh_identities} > 0 )); then
     ssh-add "$_ssh_dir/${^_ssh_identities[@]}" 2> /dev/null
   else
-    ssh-add 2> /dev/null
+    # Grr, don't autoload identies
+    #ssh-add 2> /dev/null
   fi
 fi
 
