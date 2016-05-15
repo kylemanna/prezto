@@ -25,9 +25,9 @@ if [[ ! -S "$SSH_AUTH_SOCK" ]]; then
   source "$_ssh_agent_env" 2> /dev/null
 
   # Start ssh-agent if not started.
-  if ! ps -U "$LOGNAME" -o pid,ucomm | grep -q -- "${SSH_AGENT_PID:--1} ssh-agent"; then
-    eval "$(ssh-agent | sed '/^echo /d' | tee "$_ssh_agent_env")"
-  fi
+  #if ! ps -U "$LOGNAME" -o pid,ucomm | grep -q -- "${SSH_AGENT_PID:--1} ssh-agent"; then
+    #eval "$(ssh-agent | sed '/^echo /d' | tee "$_ssh_agent_env")"
+  #fi
 fi
 
 # Create a persistent SSH authentication socket.
