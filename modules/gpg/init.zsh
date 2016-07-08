@@ -17,14 +17,7 @@ _gpg_agent_env="${TMPDIR:-/tmp}/gpg-agent.env"
 # Export environment variables.
 source "$_gpg_agent_env" 2> /dev/null
 
-# Start gpg-agent if not started.
-if [[ -z "$GPG_AGENT_INFO" && ! -S "${GNUPGHOME:-$HOME/.gnupg}/S.gpg-agent" ]]; then
-
-  # Start gpg-agent if not started.
-  if ! ps -U "$LOGNAME" -o pid,ucomm | grep -q -- "${${${(s.:.)GPG_AGENT_INFO}[2]}:--1} gpg-agent"; then
-    eval "$(gpg-agent --daemon | tee "$_gpg_agent_env")"
-  fi
-fi
+gpg-connect-agent /bye
 
 # Inform gpg-agent of the current TTY for user prompts.
 export GPG_TTY="$(tty)"
