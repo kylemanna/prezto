@@ -14,11 +14,6 @@ fi
 _gpg_agent_conf="${GNUPGHOME:-$HOME/.gnupg}/gpg-agent.conf"
 _gpg_agent_env="${TMPDIR:-/tmp}/gpg-agent.env"
 
-# Export environment variables.
-source "$_gpg_agent_env" 2> /dev/null
-
-gpg-connect-agent /bye
-
 # Inform gpg-agent of the current TTY for user prompts.
 export GPG_TTY="$(tty)"
 
